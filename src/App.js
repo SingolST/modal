@@ -1,23 +1,18 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import Modal from './components/Modal/Modal';
 import './App.css';
 
 function App() {
+
+  const [open, setOpen] = useState(false);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button onClick={() => setOpen(true)} className="open-modal-btn">✨ Открыть окно</button>
+      <Modal open={open} setOpen={setOpen}>
+        <img src="https://media2.giphy.com/media/xT0xeJpnrWC4XWblEk/giphy.gif" />
+        <h3>Это модальное окно</h3>
+      </Modal>
     </div>
   );
 }
